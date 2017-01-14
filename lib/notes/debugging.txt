@@ -1,0 +1,10 @@
+################################################################################
+# 1-14-17: #####################################################################
+• WHAT: error message:
+  `Sass::SyntaxError - File to import not found or unreadable:
+  bootstrap-sprockets.`
+
+• WHEN: after installing a bunch of gems (with a regular `$ bundle install`)
+
+• PROBLEM & SOLUTION: I didn't bother to `$ rails server`
+################################################################################

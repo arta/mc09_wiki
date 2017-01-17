@@ -7,5 +7,6 @@
 %p= @article.content
 
 =link_to 'Back', articles_path
-=link_to 'Edit', [:edit, @article]
-=link_to 'Delete', @article, method: :delete, data:{ confirm:'Are you sure?' }
+-if current_user == @article.user
+  =link_to 'Edit', [:edit, @article]
+  =link_to 'Delete', @article, method: :delete, data:{ confirm:'Are you sure?' }

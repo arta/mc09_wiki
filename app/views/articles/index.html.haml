@@ -6,6 +6,7 @@
     by
     =article.user.email
   %p= article.content.truncate( 200 )
-  %p
-    =link_to 'Edit', [:edit, article]
-    =link_to 'Delete', article, method: :delete, data:{ confirm:'Are you sure?' }
+  -if current_user == article.user
+    %p
+      =link_to 'Edit', [:edit, article]
+      =link_to 'Delete', article, method: :delete, data:{ confirm:'Are you sure?' }

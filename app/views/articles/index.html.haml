@@ -1,8 +1,10 @@
-%h1 Articles
-
 -@articles.each do |article|
+  %h2=link_to article.title, article
   %p
-    =link_to article.title, article
+    Published on
+    =article.created_at.strftime( "%b %d, %Y" )
+  %p= article.content.truncate( 200 )
+  %p
     =link_to 'Edit', [:edit, article]
     =link_to 'Delete', article, method: :delete, data:{ confirm:'Are you sure?' }
 

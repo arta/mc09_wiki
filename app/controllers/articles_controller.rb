@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
   #   from: <a href='/articles/new'> .. </a>
   #   by:   =link_to .. new_article_path
   def new
-    @article = Article.new
+    @article = current_user.articles.new
   end
   # Implicitly renders /articles/new haml view
   #   that renders /articles/_form haml partial
@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
   #   from: <form action='/articles' method='post'..>
   #   by:   =form_for @article .. if @article.new_record?
   def create
-    @article = Article.new article_params
+    @article = current_user.articles.new article_params
     if @article.save
       redirect_to @article, notice:'Article created.'
     else

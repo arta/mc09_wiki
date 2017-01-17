@@ -3,6 +3,8 @@
   %p
     Published on
     =article.created_at.strftime( "%b %d, %Y" )
+    by
+    =article.user.email
   %p= article.content.truncate( 200 )
   %p
     =link_to 'Edit', [:edit, article]

@@ -74,6 +74,17 @@ class ArticlesController < ApplicationController
   end
   # No view. Explicitly redirect_to|render action|view
 
+  # DELETE /articles/:id
+  #   from: <a href='/articles/1', method='delete'> .. </a>
+  #   by:   =link_to .. @article, method: :delete
+  #   router reads :id value from the request and assigns it to params[:id]
+  def destroy
+    @article = Article.find params[:id]
+    @article.destroy
+    redirect_to articles_path, notices:'Article deleted.'
+  end
+  # No view. Explicitly redirect_to some action
+
   private
     def article_params
       params.require( :article ).permit( :title, :content )

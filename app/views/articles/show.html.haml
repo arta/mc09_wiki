@@ -3,3 +3,4 @@
 
 =link_to 'Back', articles_path
 =link_to 'Edit', [:edit, @article]
+=link_to 'Delete', @article, method: :delete, data:{ confirm:'Are you sure?' }

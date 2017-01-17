@@ -4,5 +4,6 @@
   %p
     =link_to article.title, article
     =link_to 'Edit', [:edit, article]
+    =link_to 'Delete', article, method: :delete, data:{ confirm:'Are you sure?' }
 
 =link_to '+ Article', new_article_path

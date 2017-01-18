@@ -11,6 +11,6 @@
 
 .btn-group
   =link_to 'Back', articles_path, class:'btn btn-default'
-  -if current_user == @article.user
+  -if user_signed_in?
     =link_to 'Edit', [:edit, @article], class:'btn btn-default'
     =link_to 'Delete', @article, method: :delete, data:{ confirm:'Are you sure?' }, class:'btn btn-default'

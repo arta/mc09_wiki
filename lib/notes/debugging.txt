@@ -1,4 +1,19 @@
 ################################################################################
+# 1-17-17: #####################################################################
+• WHAT: Article#category selected from the form options wouldn't save.
+• WHEN: After implementing the association on the models and in the views.
+• PROBLEM: Again, as succinctly explained by the server:
+
+    > Unpermitted parameter: category_id
+
+• SOLUTION: Permit the attribute in ArticlesController:
+
+    params.require( :article ).permit( ..., :category_id )
+################################################################################
+
+
+
+################################################################################
 # 1-14-17: #####################################################################
 • WHAT: error message:
   `Sass::SyntaxError - File to import not found or unreadable:

@@ -4,6 +4,9 @@
   =@article.created_at.strftime( "%b %d, %Y" )
   by
   =@article.user.email
+%p
+  Category:
+  =@article.category.name
 %p= @article.content
 
 =link_to 'Back', articles_path

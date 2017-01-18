@@ -1,4 +1,28 @@
 ################################################################################
+# 1-17-17: #####################################################################
+• Forming article#category using Rails own form helpers:
+
+: REMEMBER: article's attribute .category is actually an association.
+  The actual attribute, generally, is .association_id ( NOT .association ).
+  Hence:
+
+    =f.collection_select :category_id, Category.all, :id, :name,
+      prompt:'--- Select'
+
+  : Or, the older way:
+
+    =f.select :category_id, Category.all.map { |e| [e.name, e.id] },
+      prompt:'--- Select'
+
+  : GOTCHA:
+    : prompt:'--- Select' only shown if no value selected yet (.new_record?)
+    : include_blank:'--- Select' is always shown in the options
+      ("misleadingly"; it actually cannot be selected for a valid record)
+################################################################################
+
+
+
+################################################################################
 # 1-16-17: #####################################################################
 • devise User:
   $ rails g devise user

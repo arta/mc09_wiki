@@ -6,7 +6,11 @@ class ArticlesController < ApplicationController
   #   from: <a href='/articles'> .. </a>
   #   by:   =link_to .. articles_path
   def index
-    @articles = Article.order created_at: :desc
+    @articles = if params[:category]
+      Article.includes( :category ).where( categories: { name: params[:category] } ).order( created_at: :desc )
+    else
+      Article.order( created_at: :desc )
+    end
   end
   # Implicitly renders /articles/index haml view (with @articles available)
   #   that renders /articles html index page

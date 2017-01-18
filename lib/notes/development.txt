@@ -1,5 +1,29 @@
 ################################################################################
 # 1-17-17: #####################################################################
+################################################################################
+• Querying a model for attribute of an association:
+
+  Article.includes( :category ).where( categories: { name: params[:category] } )
+
+    `:category`     is the association name
+    `categories:`   is the table name
+
+: Because:
+   .where( attribute: value, categories: {...} )
+    ~=
+    Category.where( {...} )
+    ==
+    Category.where( ... )
+################################################################################
+• Passing arguments to controller#action in a link:
+: done via .._path helper:
+
+    =link_to 'Resource', resource_path( @resource, extra_argument: value )
+
+: router will load it into params hash as any other key, value pair:
+
+    params[:extra_argument] = value
+################################################################################
 • Forming article#category using Rails own form helpers:
 
 : REMEMBER: article's attribute .category is actually an association.

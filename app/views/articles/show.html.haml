@@ -9,7 +9,8 @@
   =@article.category.name
 %p= @article.content
 
-=link_to 'Back', articles_path
--if current_user == @article.user
-  =link_to 'Edit', [:edit, @article]
-  =link_to 'Delete', @article, method: :delete, data:{ confirm:'Are you sure?' }
+.btn-group
+  =link_to 'Back', articles_path, class:'btn btn-default'
+  -if current_user == @article.user
+    =link_to 'Edit', [:edit, @article], class:'btn btn-default'
+    =link_to 'Delete', @article, method: :delete, data:{ confirm:'Are you sure?' }, class:'btn btn-default'
